@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Product Information</h2>
+        <form id="productForm">
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" id="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="introductionDate">Introduction Date</label>
+                <input type="date" class="form-control" id="introductionDate" required>
+            </div>
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="url" class="form-control" id="url" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+
+        <h2 class="mt-5">Delete Product</h2>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Introduction Date</th>
+                    <th>URL</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="productTable">
+                <tr>
+                    <td>Embedding Bootstrap with CSS, JavaScript and jQuery</td>
+                    <td>01/11/2015</td>
+                    <td><a href="http://www.product.com" target="_blank">www.product.com</a></td>
+                    <td><button class="btn btn-danger btn-sm delete-btn">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const productName = document.getElementById('productName').value;
+            const introductionDate = document.getElementById('introductionDate').value;
+            const url = document.getElementById('url').value;
+
+            const table = document.getElementById('productTable');
+            const row = table.insertRow();
+            row.innerHTML = `
+                <td>${productName}</td>
+                <td>${introductionDate}</td>
+                <td><a href="${url}" target="_blank">${url}</a></td>
+                <td><button class="btn btn-danger btn-sm delete-btn">X</button></td>
+            `;
+
+            document.getElementById('productForm').reset();
+        });
+
+        document.getElementById('productTable').addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-btn')) {
+                const row = event.target.closest('tr');
+                row.remove();
+            }
+        });
+    </script>
+</body>
+
+</html>
+</tbody>
+</div>
+
+</html>
