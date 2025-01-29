@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Product Name</div>
+            <input type="text" class="input-box" id="productName">
+        </div>
+        <div class="section">
+            <div class="section-title">Introduction Date</div>
+            <input type="date" class="input-box" id="introductionDate">
+        </div>
+        <div class="section">
+            <div class="section-title">URL</div>
+            <input type="url" class="input-box" id="productUrl">
+        </div>
+        <button class="button" id="addButton">Add</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#addButton').click(function () {
+                var productName = $('#productName').val();
+                var introductionDate = $('#introductionDate').val();
+                var productUrl = $('#productUrl').val();
+
+                alert('Product Name: ' + productName + '\nIntroduction Date: ' + introductionDate + '\nURL: ' + productUrl);
+            });
+        });
+    </script>
+</body>
+
+</html>
+</div>
